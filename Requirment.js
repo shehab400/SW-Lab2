@@ -16,7 +16,7 @@ class Rectangle {
   constructor(startingPoint, w, h) {
     if (!h || h <= 0 || !w || w <= 0) {
       throw Error("invalid Width and Height"); // throws an error in cas of width or height < 0
-    }
+    } 
     this.startingPoint = startingPoint;
     this.w = w; // w is the width
     this.h = h; // h is the height
@@ -39,6 +39,9 @@ class Rectangle {
 
   updateMyHeight(height) {
     if (height && height > 0) {
+      if (this.w === this.h) {
+        this.w = height;
+      }
       this.h = height;
     }
     //TODO: handle case of updating the height of square
@@ -88,9 +91,9 @@ function construct_Square(cord_x, CordY, SquareHeight) {
 }
 
 const myRect = buildObject(2, 3, 5, 4);
-const sq = construct_Square();
+// const sq = construct_Square();
 
-console.log(sq.calculatePerimeter());
-sq.endPoints();
+// console.log(sq.calculatePerimeter());
+// sq.endPoints();
 
 myRect.updateMyHeight(3);
